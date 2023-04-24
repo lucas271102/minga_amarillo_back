@@ -13,7 +13,7 @@ import logger from 'morgan'
 //let indexRouter = require('./routes/index');
 import indexRouter from './routes/index.js'
 //let usersRouter = require('./routes/users');
-
+import cors from 'cors'
 import { __dirname } from './utils.js';
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
   });
-  
+  app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
